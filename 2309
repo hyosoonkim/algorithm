@@ -1,0 +1,244 @@
+
+
+
+문제 1) 일곱난쟁이
+
+
+
+
+
+
+
+import java.util.*;
+
+public class Main {
+
+	static int map[] ; 
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	
+		Scanner sc = new Scanner(System.in);
+		
+		map = new int[9];
+		
+		int total_sum = 0 ; 
+		
+		for(int i = 0 ; i <9 ; i++)
+		{
+			map[i] = sc.nextInt();
+			total_sum += map[i];
+		}
+		
+		Arrays.sort(map);
+		
+		for(int i = 0 ; i < 9 ; i++)
+		{
+			for(int j = 0 ; j < 9 ; j++){
+				
+				if(total_sum - (map[i]) - (map[j]) == 100)
+				{
+					map[i] = 0 ;
+					map[j] = 0 ;
+					break;
+				}
+			}
+			
+		}
+		for(int i = 0 ; i <9 ; i++)
+		{
+			if(map[i]!=0) System.out.println(map[i]);
+		}
+ 
+
+문제 2 ) N . M
+
+
+
+
+
+
+
+
+
+import java.util.*;
+
+public class Main {
+
+ 
+ static int visted[] ;
+ static char res[];
+ static int start;
+ static int end ; 
+ static StringBuffer output = new StringBuffer();
+ 
+ public static void main(String[] args) {
+  // TODO Auto-generated method stub
+
+  int arr[] = new int[10]; 
+  
+  Scanner sc = new Scanner(System.in);
+  
+   start = sc.nextInt();
+   end = sc.nextInt();
+  
+  visted = new int[start+1];
+  res = new char[2*end];
+  
+  for(int i = 0 ; i < 2 *end ; i++)
+  {
+   res[i] = ' ';
+  }
+  
+  dfs(0);
+  System.out.println(output.toString());
+  
+ }
+ 
+ static public void dfs(int number){
+  
+  if(number == end) {
+   output.append(res);
+   output.append("\n");
+   return ;
+  }
+        
+  for (int i = 1; i <= start; i++) {
+   
+            if(visted[i]==1) continue;
+            
+            visted[i] = 1;
+            res[number*2] = (char)(i+'0');
+            dfs(number+1);
+            visted[i] = 0;
+        }
+
+  
+  
+  
+ }
+}
+ 
+
+
+
+
+문제 3) dfs . bfs
+
+package dfs_bfs;
+
+import java.util.*;
+
+public class Main {
+
+	
+	static int dfsvisited[ ];
+	static int bfsvisited[ ];
+	static ArrayList<Integer> adjList[];
+	static Queue<Integer> bfsQueue;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner sc = new Scanner (System.in);
+		
+		int V = sc.nextInt();
+		int S = sc.nextInt();
+		int Start = sc.nextInt();
+		
+		adjList = new ArrayList[V+1];
+		dfsvisited = new int[V+1];
+		bfsvisited = new int[V+1];
+		
+		for(int i = 1 ; i <=V ; i++)
+		{
+			adjList[i] = new ArrayList<Integer>();
+		}
+		
+		for(int i = 0 ; i < V ; i++)
+		{
+			
+			int u = sc.nextInt();
+			int w = sc.nextInt();
+			
+			adjList[u].add(w);
+			adjList[w].add(u);
+		}
+		
+		System.out.println();
+		dfs(Start);
+		System.out.println();
+		bfs(Start);
+		
+		
+	}
+
+	static public void bfs(int node){
+		
+		bfsQueue = new LinkedList();
+		
+		bfsvisited[node] = 1 ;
+		
+		bfsQueue.add(node);
+				
+		while(!bfsQueue.isEmpty())
+		{
+			
+			if(adjList[node]!=null)
+			{
+				
+				int data = bfsQueue.poll();
+				
+				System.out.print(data + " ");
+				
+				for(int y : adjList[data])
+				{
+					if(bfsvisited[y]!=1)
+					{
+						bfsvisited[y] = 1 ;
+						
+						bfsQueue.add(y);
+						
+					}
+				}
+				
+			}
+			
+			
+		}
+		
+	}
+	
+	static public void dfs (int node){
+		
+		dfsvisited[node] = 1 ; 
+		
+		System.out.print(node + " ");
+		
+		for(int y : adjList[node]){
+			
+			if(dfsvisited[y] != 1 ){
+				
+				dfs(y);
+			}
+			
+		}
+		
+		
+		
+	}
+}
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
