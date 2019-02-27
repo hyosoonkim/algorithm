@@ -1,0 +1,103 @@
+package dfs_bfs;
+
+import java.util.*;
+
+public class Main {
+
+	
+	static int dfsvisited[ ];
+	static int bfsvisited[ ];
+	static ArrayList<Integer> adjList[];
+	static Queue<Integer> bfsQueue;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner sc = new Scanner (System.in);
+		
+		int V = sc.nextInt();
+		int S = sc.nextInt();
+		int Start = sc.nextInt();
+		
+		adjList = new ArrayList[V+1];
+		dfsvisited = new int[V+1];
+		bfsvisited = new int[V+1];
+		
+		for(int i = 1 ; i <=V ; i++)
+		{
+			adjList[i] = new ArrayList<Integer>();
+		}
+		
+		for(int i = 0 ; i < V ; i++)
+		{
+			
+			int u = sc.nextInt();
+			int w = sc.nextInt();
+			
+			adjList[u].add(w);
+			adjList[w].add(u);
+		}
+		
+		System.out.println();
+		dfs(Start);
+		System.out.println();
+		bfs(Start);
+		
+		
+	}
+
+	static public void bfs(int node){
+		
+		bfsQueue = new LinkedList();
+		
+		bfsvisited[node] = 1 ;
+		
+		bfsQueue.add(node);
+				
+		while(!bfsQueue.isEmpty())
+		{
+			
+			if(adjList[node]!=null)
+			{
+				
+				int data = bfsQueue.poll();
+				
+				System.out.print(data + " ");
+				
+				for(int y : adjList[data])
+				{
+					if(bfsvisited[y]!=1)
+					{
+						bfsvisited[y] = 1 ;
+						
+						bfsQueue.add(y);
+						
+					}
+				}
+				
+			}
+			
+			
+		}
+		
+	}
+	
+	static public void dfs (int node){
+		
+		dfsvisited[node] = 1 ; 
+		
+		System.out.print(node + " ");
+		
+		for(int y : adjList[node]){
+			
+			if(dfsvisited[y] != 1 ){
+				
+				dfs(y);
+			}
+			
+		}
+		
+		
+		
+	}
+}
