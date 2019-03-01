@@ -1,0 +1,50 @@
+
+import java.util.*;
+
+public class Main {
+
+	static char left[] ;
+	static char right[];
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner sc = new Scanner(System.in);
+	
+		int test_case = sc.nextInt();
+		
+		for(int j = 0 ; j < test_case ; j++){
+	
+			String input = sc.next();
+				   
+					left = new char[input.length()];
+					right = new char[input.length()];
+					
+					int l_cnt = 0 ;
+					int r_cnt = 0 ;
+					
+					
+					for(int i = 0 ; i < input.length() ; i++){
+					
+						if(input.charAt(i) == '(') {
+							
+							left[l_cnt] = input.charAt(i); 
+							l_cnt++;
+							
+						}else if(input.charAt(i) == ')') {
+							
+							right[r_cnt] = input.charAt(i); 
+							r_cnt++;
+						}
+						
+					} 
+			
+					if(l_cnt == r_cnt ){
+						System.out.println("YES");
+					}else {
+						System.out.println("NO" );
+					}
+		}			
+	}
+
+}
