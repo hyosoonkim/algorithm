@@ -1,0 +1,41 @@
+
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Stack<Integer> sk = new Stack<Integer>();
+		
+		//LinkedList<String> queue = new LinkedList<String>();
+		
+		Scanner sc = new Scanner(System.in);
+		
+		String input = sc.nextLine();
+
+		int count = 0 ;
+		
+		
+		for(int i = 0 ; i < input.length(); i++){
+						
+			char ac = input.charAt(i);
+						
+			if(ac == '(') {
+				sk.push(i);	
+			}else {
+				if(sk.peek()+1 == i) {
+					sk.pop();
+					count+=sk.size();
+				}else{
+					sk.pop();
+					count+=1;
+				}
+			} 			
+		}
+		
+		System.out.println("" + count);
+		
+	}
+
+}
