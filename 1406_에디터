@@ -1,0 +1,62 @@
+
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Stack<Character> left = new Stack<Character> ();
+		Stack<Character> right = new Stack<Character> ();
+		
+		Scanner sc =new Scanner(System.in);
+		String input = sc.nextLine();
+		
+		for(int j = 0 ; j < input.length(); j++){
+			
+			left.push(input.charAt(j));
+			
+		}
+		
+		int command_count = Integer.parseInt(sc.nextLine());
+				
+		for(int i = 0 ; i < command_count ; i++){
+			
+			String[] line = sc.nextLine().split(" ");
+			
+			char cmd = line[0].charAt(0);
+					   				
+				if(cmd == 'L') {
+			    	if(!left.empty()){
+			    		right.push(left.pop());
+			    	}			    	
+			    }
+			    else if(cmd == 'D') {
+			    	if(!right.empty()){
+			    		left.push(right.pop());
+			    	}
+			    }else if(cmd == 'B') {
+			    	if(!left.empty()){
+			    		left.pop();
+			    	}
+			    }else if(cmd == 'P') {
+			    	if(!left.empty()){
+			    		left.push(line[1].charAt(0));
+			    	}
+			    }				
+			}			
+	
+		while(!left.empty()){
+			right.push(left.pop());
+		}
+		
+		StringBuilder sb = new StringBuilder();
+	    while (!right.empty()) {
+	            sb.append(right.pop());
+	    }
+		
+		System.out.println(sb);
+		  
+	}
+
+}
