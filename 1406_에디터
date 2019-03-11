@@ -9,8 +9,11 @@ public class Main {
 		Stack<Character> left = new Stack<Character> ();
 		Stack<Character> right = new Stack<Character> ();
 		
-		Scanner sc =new Scanner(System.in);
-		String input = sc.nextLine();
+		//Scanner sc =new Scanner(System.in);
+		//String input = sc.nextLine();
+		
+		 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                String input = br.readLine();
 		
 		for(int j = 0 ; j < input.length(); j++){
 			
@@ -18,11 +21,11 @@ public class Main {
 			
 		}
 		
-		int command_count = Integer.parseInt(sc.nextLine());
+		int command_count = Integer.parseInt(br.readLine());
 				
-		for(int i = 0 ; i < command_count ; i++){
+		while (m-- > 0){
 			
-			String[] line = sc.nextLine().split(" ");
+			String[] line = br.readLine().split(" ");
 			
 			char cmd = line[0].charAt(0);
 					   				
