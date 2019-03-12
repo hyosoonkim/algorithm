@@ -1,0 +1,40 @@
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Queue<Integer> qx = new LinkedList<Integer>();
+		
+		Scanner sc = new Scanner(System.in);
+		
+		StringBuffer sb = new StringBuffer();
+		sb.append("<");
+		
+		int test_case = sc.nextInt();
+		int M = sc.nextInt();
+		
+		for(int i = 1 ; i <= test_case ; i++)
+		{
+			qx.add(i);
+		}
+	
+		while(true){
+			
+			for(int j = 1 ; j < M ; j++){
+		    	
+		    	qx.offer(qx.poll());
+		    }
+			
+			System.out.println(qx.poll());
+			
+			if(qx.isEmpty()){
+				break;
+			}
+		}
+	
+	}
+	
+
+}
