@@ -1,0 +1,59 @@
+import java.util.*;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Queue<Integer> qx = new LinkedList<Integer>() ;
+		
+		int b = 0 ; 
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int test_case = sc.nextInt();
+		
+		for(int i = 0 ; i < test_case ; i ++){
+			
+			String input = sc.next();
+						
+			if(input.equals("push") ) {		
+				b = sc.nextInt();
+				System.out.println(b);
+				qx.add(b);
+				
+			}else if(input.equals("front") ) {
+				
+				if(qx.isEmpty()){
+					System.out.println("-1");
+				}else{
+					System.out.println(qx.peek());
+				}
+				
+			}else if(input.equals("back") ) {
+				
+				if(qx.isEmpty()){
+					System.out.println("-1");
+				}else{
+					System.out.println("0");
+				}				
+			}else if(input.equals("size") ) {
+				System.out.println(qx.size());
+			}else if(input.equals("empty") ) {
+				if(qx.isEmpty())
+				{
+					System.out.println("1");
+				}else{
+					System.out.println("0");
+				}
+			}else if(input.equals("pop") ) {
+				if(qx.isEmpty() ) {
+					System.out.println("-1");	
+				}else{
+					System.out.println(qx.poll());
+				}
+			}
+			
+		}	
+	}
+}
