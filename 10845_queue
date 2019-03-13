@@ -19,7 +19,7 @@ public class Main {
 						
 			if(input.equals("push") ) {		
 				b = sc.nextInt();
-				System.out.println(b);
+				//System.out.println(b);
 				qx.add(b);
 				
 			}else if(input.equals("front") ) {
@@ -35,7 +35,8 @@ public class Main {
 				if(qx.isEmpty()){
 					System.out.println("-1");
 				}else{
-					System.out.println("0");
+					System.out.println(((LinkedList<Integer>) qx).getLast());
+					//System.out.println("0");
 				}				
 			}else if(input.equals("size") ) {
 				System.out.println(qx.size());
