@@ -1,0 +1,28 @@
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		int [] input = new int[26];
+		
+		Scanner sc = new Scanner(System.in);
+		
+		String s = sc.next();
+    
+		for(int i = 0 ; i< s.length(); i++) {
+		    input[s.charAt(i) - 97]++;
+		}
+		
+		for(int i = 0 ; i < 26; i++) {
+			System.out.print(input[i] + " " );
+		}
+		
+		
+		
+		
+	}
+
+}
