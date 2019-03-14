@@ -1,0 +1,19 @@
+import java.util.*;
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner sc = new Scanner(System.in);
+		
+		String input = sc.nextLine();
+		
+		String [] s = input.split(" ");
+				
+		String A = s[0]+s[1];
+		String B = s[2]+s[3];
+				
+		System.out.println(Integer.parseInt(A)+Integer.parseInt(B));
+	}
+
+}
