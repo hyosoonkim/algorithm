@@ -1,0 +1,44 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+
+		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in)); //선언
+		String input = null;
+		int [] result = new int[4];
+		
+		while((input = bf.readLine())!=null){
+		
+			//System.out.println(input + " " + input.length());
+			
+			for(int i = 0 ; i < input.length();i++){
+				
+				int ch = (int) input.charAt(i) ; 
+				
+	            if(ch==32){
+	            	result[3]++;
+	            }else if(ch>96 && ch<123){
+	            	result[0]++;
+	            }else if(ch>64 && ch<91){
+	            	result[1]++;
+	            }else{
+	            	result[2]++;
+	            }
+				
+			}
+			
+			for(int i = 0 ; i < 4 ; i++){
+				System.out.print(result[i] + " ");
+				result[i] = 0 ;
+			}
+			System.out.println();
+	
+		}
+
+			
+	}
+
+}
