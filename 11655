@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+		Scanner sc = new Scanner(System.in);
+		
+		String input = sc.nextLine();
+		
+		for(int i = 0 ; i < input.length(); i ++){
+			
+			int value = (int)input.charAt(i);
+			
+			int result = 0 ;
+			
+			if(value > 96 && value < 123) {
+								
+			   result = value + 13 ;
+			   
+			   if(result>122) {
+				   result = result-26;
+			   }
+			   
+				
+			} else if(value > 64 && value < 91){
+				
+				
+				result = value + 13 ;
+				
+				   
+				if(result > 90) {
+					   result = result-26;
+				   }
+				
+			}else if(value ==32) {
+			   result = 32 ;	
+			}else{
+				result = value;
+			}
+			
+			System.out.print((char)result);
+						
+		}
+		
+	}
+
+}
