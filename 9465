@@ -1,0 +1,52 @@
+import java.util.*;
+import java.io.*;
+
+public class Main {
+
+	static int [][] temp;
+	static int [][] dp ; 
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		// TODO Auto-generated method stub
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int test_case = Integer.valueOf(br.readLine());
+		
+		while( test_case-- > 0) {
+			
+			int col = Integer.valueOf(br.readLine());
+
+			temp = new int[2][col+1];
+			dp = new int[2][col+1];
+			
+			String[] input = br.readLine().split(" ");
+			
+			for(int i = 0 ; i <col ; i ++) {
+				temp[0][i+1] = Integer.valueOf(input[i]);
+			}
+			
+			String[] input1 = br.readLine().split(" ");
+			
+			for(int i = 0 ; i <col ; i ++) {
+				temp[1][i+1] = Integer.valueOf(input1[i]);
+			}		
+						
+			dp[0][0] = 0 ; 
+			dp[1][0] = 0 ;
+			dp[0][1] = temp[0][1] ; 
+			dp[1][1] = temp[1][1] ; 
+			
+			for(int k = 2 ; k <=col ; k++) {
+				
+				dp[0][k] = Math.max(dp[1][k-1],dp[1][k-2]) + temp[0][k];
+				dp[1][k] = Math.max(dp[0][k-1],dp[0][k-2]) + temp[1][k];
+			}
+			
+			System.out.println(Math.max(dp[0][col],dp[1][col]));
+		}
+		
+		
+	}
+
+}
