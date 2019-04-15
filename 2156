@@ -1,0 +1,50 @@
+import java.io.*;
+import java.util.*;
+
+
+public class Main {
+
+	static int[] temp ; 
+	static int[] sum;
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		// TODO Auto-generated method stub
+
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int test_case = Integer.parseInt(br.readLine());
+		
+		temp = new int[test_case+1];
+		
+		for(int i = 1 ; i <= test_case ; i ++) {
+			temp[i] = Integer.parseInt(br.readLine());
+		}
+				
+		sum = new int[test_case+1];
+		
+		sum[1] = temp[1];
+		
+		if(test_case>=2) {
+			sum[2] = temp[1] + temp[2] ;			
+		}
+
+		for(int i = 3 ; i <= test_case ; i++) {
+			
+			sum[i] = sum[i-1];			
+			sum[i] = Math.max(sum[i] , temp[i] + sum[i-2]) ;
+			sum[i] = Math.max(sum[i] , temp[i] + temp[i-1] + sum[i-3]);
+		}
+		
+		int ans = 0 ; 
+		
+		ans = sum[1]; 
+		
+		for(int i = 2 ; i <=test_case;i++) {
+		    	ans = Math.max(ans, sum[i]);
+		}
+		System.out.println(ans);
+		
+	}
+
+}
