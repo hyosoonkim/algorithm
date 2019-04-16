@@ -1,0 +1,46 @@
+import java.util.*;
+import java.io.*;
+
+
+public class Main {
+
+	static int[] temp;
+	static int[] d ; 
+	
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		// TODO Auto-generated method stub
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); 
+		
+	    int test_case = Integer.parseInt(br.readLine());
+	    //String[] input = br.readLine().split(" ") ; 
+	    
+	    temp = new int[test_case+1];
+	    
+	    for(int i = 1 ; i <= test_case ; i++) {
+	    	
+	    	temp[i] = Integer.parseInt(br.readLine());
+	    }
+		
+	    
+	    int[][] d = new int[test_case+1][3] ;
+	    
+	    //d[0] = temp[0] ; 
+	    
+	    d[1][1] = temp[1];
+	    
+	    for(int i = 2 ; i <= test_case ; i ++) 
+	    {
+	    	d[i][2] = temp[i] + d[i-1][1];
+	    	
+	    	d[i][1] = Math.max(d[i-2][1], d[i-2][2]) + temp[i];
+	    	
+	    }
+	    
+		System.out.println(Math.max(d[test_case][1], d[test_case][2]));
+		
+		
+	}
+
+}
