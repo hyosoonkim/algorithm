@@ -1,0 +1,49 @@
+import java.util.*;
+import java.io.*;
+
+
+public class Main {
+
+	static int [] temp;
+	static int [] d ;
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		// TODO Auto-generated method stub
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int test_case = Integer.parseInt(br.readLine());
+		
+		String[] input = br.readLine().split(" ");
+		
+		temp = new int[test_case+1];
+		d = new int[test_case+1];
+		
+		for(int i = 0 ; i < test_case ; i ++) {
+			
+			temp[i] = Integer.parseInt(input[i]);
+		}
+		
+		d[0] = temp[0] ; 
+		
+		for(int i = 1 ; i < test_case ; i++) {
+			
+			d[i]=Math.max(d[i-1] + temp[i] , temp[i] );
+			
+			//System.out.println(d[i]);
+		}
+		
+		int ans = d[0]; 
+		
+		for(int i = 1 ; i < test_case ; i++) {
+			
+			if(ans<d[i]) {
+				ans = d [i] ; 
+			}
+		}
+		
+		System.out.println(ans);
+		
+	}
+
+}
