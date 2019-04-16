@@ -1,0 +1,54 @@
+import java.io.*;
+import java.util.*;
+
+
+public class Main {
+
+	static int [] temp;
+	static int [] sub;
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		// TODO Auto-generated method stub
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	    
+		int test_case = Integer.parseInt(br.readLine());
+		
+	    temp = new int[test_case+1];
+	    sub = new int [test_case+1];
+	    
+	    String[] input = br.readLine().split(" ");
+	    	    
+	    for(int i = 0 ; i < test_case ; i++) {
+	    	temp[i] = Integer.parseInt(input[i]);
+	    }
+	     
+	    for(int i = 0 ; i < test_case; i++){
+	        
+	    	 sub[i] = 1 ;
+	    	
+	    	 for(int j = 0 ; j < i ; j++) {
+	    		 
+	    		 if( ( temp[j]< temp [i]) && (sub[i] < sub[j]+1)) {
+	    			 
+	    			 	sub[i] = sub[j] +1 ;	 
+	    		 }
+	    		 
+	    	 }
+	    	
+	    }
+	    
+	    int ans = sub[0]; 
+	    
+	    for(int i = 0 ; i < test_case ; i ++) {
+	    	if(ans<sub[i]) 
+	    	{
+	    		ans = sub[i] ; 
+	    	}
+	    }
+	    
+	    System.out.println(ans);
+	    //sub[0] = temp[0];
+	}
+
+}
