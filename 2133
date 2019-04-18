@@ -1,0 +1,34 @@
+import java.util.*;
+import java.io.*;
+
+public class Main {
+
+	static int[] d ;
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		// TODO Auto-generated method stub
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	    
+		int test_case = Integer.parseInt(br.readLine());
+	    
+		
+		d = new int[test_case+1];
+		
+		d[0] = 1 ;
+		
+		for(int i = 2 ; i <= test_case ; i+=2)
+		{
+			
+			    d[i] = d[i-2] * 3 ;  // 1*2 tiles 
+			    			    
+				for(int j = i - 4 ; j >=0 ; j-=2) 
+				{
+					d[i] = d[i] + (d[j] * 2);			 // 2*1 tiles	
+				}	
+		}
+		
+		System.out.println(d[test_case]);
+	}
+
+}
