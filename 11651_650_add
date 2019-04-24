@@ -1,0 +1,39 @@
+import java.util.*;
+import java.io.*;
+
+
+public class Main {
+
+	static int[][] temp;
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		// TODO Auto-generated method stub
+
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	
+	int test_case = Integer.parseInt(br.readLine());
+	
+	temp = new int [test_case][test_case];
+	
+		for(int i = 0 ; i < test_case ; i++)
+		{
+			String [] input = br.readLine().split(" ");
+			temp[i][0] = Integer.parseInt(input[0]) ; 
+			temp[i][1] = Integer.parseInt(input[1]) ;
+		}
+		
+        Arrays.sort(temp, new Comparator<int[]>(){
+        	@Override
+        	public int compare(int[] o1 , int[] o2){
+        		return o1[1] - o2[1];
+        	}
+        });
+        
+        for (int i = 0; i < temp.length; i++) {
+            System.out.println(temp[i][0] + " " + temp[i][1]);
+        }
+        System.out.println();
+		
+	}
+
+}
