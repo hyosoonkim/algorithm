@@ -1,0 +1,34 @@
+import java.util.*;
+import java.io.*;
+
+public class Main {
+
+	//static int [] temp;
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		// TODO Auto-generated method stub
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		String[] tcase = br.readLine().split(" ");
+		
+		int test_case = Integer.parseInt(tcase[0]);
+		int index = Integer.parseInt(tcase[1]);
+		
+		ArrayList<Integer> temp = new ArrayList<Integer>();
+		
+		String[] input = br.readLine().split(" ");		
+		
+		for(int i = 0 ; i < test_case; i++){
+			
+			temp.add(Integer.parseInt(input[i])) ; 
+		}
+		
+		Collections.sort(temp);
+		
+		System.out.println(temp.indexOf(index+1));
+		
+		
+	}
+
+}
