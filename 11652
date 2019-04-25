@@ -18,14 +18,10 @@ public class Main {
 		
 		for(int i = 0 ; i < test_case ; i++) {
 			temp[i] = Integer.parseInt(br.readLine());
+			d[temp[i]] ++ ; 
 		}
 		
 		
-		for(int i = 0 ; i < test_case ; i++) {
-		     d[temp[i]] ++ ;  
-		}
-		
-		/*Arrays.sort(d);*/
 		int max = 0 ; 
 		int index = 0 ;
 		
@@ -36,8 +32,6 @@ public class Main {
 				max = d[i] ;
 				index = i ; 
 			}
-			
-			//System.out.println(d[i]+ " " + i );
 		}		
 		
 		System.out.println(index);
