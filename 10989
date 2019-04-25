@@ -1,0 +1,26 @@
+import java.util.*;
+import java.io.*;
+
+public class Main {
+
+	static int [] temp ; 
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		// TODO Auto-generated method stub
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int test_case = Integer.parseInt(br.readLine());
+		
+		temp = new int [test_case];
+		
+		for(int i = 0 ; i < test_case ; i++) {
+			temp[i] = Integer.parseInt(br.readLine());
+		}
+		
+		Arrays.sort(temp);
+		
+		for(int i = 0 ; i < test_case ; i++) {
+			System.out.println(temp[i]);
+		}		
+		
+	}
+
+}
